@@ -25,13 +25,5 @@ namespace win_checkers
             Checkers = new Checker[24];
             currentState = State.WhiteTurn; 
         }
-
-        private void CheckWin()
-        {
-            foreach (var checker in Checkers)
-            {
-
-            }
-        }
     }
 }

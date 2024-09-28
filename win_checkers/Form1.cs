@@ -235,14 +235,19 @@ public partial class Form1 : Form
             int capturedRow = (fromRow + toRow) / 2;
             int capturedCol = (fromCol + toCol) / 2;
 
+            if (capturedRow < 0 || capturedRow >= 8 || capturedCol < 0 || capturedCol >= 8)
+                return false;
+
             Checker capturedChecker = Board.Squares[capturedRow, capturedCol].Checker;
             return capturedChecker != null && capturedChecker.Color != currentPlayer;
         }
         return false;
     }
-
     private bool IsValidMove(int fromRow, int fromCol, int toRow, int toCol)
     {
+        if (toRow < 0 || toRow >= 8 || toCol < 0 || toCol >= 8)
+            return false;
+
         return Math.Abs(fromRow - toRow) == 1 && Math.Abs(fromCol - toCol) == 1 && Board.Squares[toRow, toCol].Checker == null;
     }
 }
